@@ -4,7 +4,7 @@
 <div class="header header-filter" style="background-image: url('{{ asset ('img/abstract1.jpg') }}'); background-size: cover; background-position: top center;">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-10">
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
                     <div class="card card-signup">
                         <form class="form" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
@@ -59,10 +59,10 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-md-10">aa</div>
-            <div class="col-md-10">aa</div>
-            <div class="col-md-10">aa</div>
-            <div class="col-md-10">aa</div> -->
+            <div class="col-md-10">&nbsp;</div>
+            <div class="col-md-10">&nbsp;</div>
+            <div class="col-md-10">&nbsp;</div>
+            <div class="col-md-10">&nbsp;</div>
             
         </div>
         
