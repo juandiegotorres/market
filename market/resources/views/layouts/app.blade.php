@@ -20,6 +20,9 @@
     <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/material-kit.css') }}" rel="stylesheet"/>
 
+    @yield('styles')
+
+
 </head>
 
 <body class="@yield('body-class')">
@@ -47,8 +50,11 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
+                                
                                 <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ url('/home') }}">Carrito y pedidos</a>
+                                    </li>                
                                     @if (auth()->user()->admin)
                                     <li>
                                         <a href="{{ url('/admin/products') }}">Gestionar productos </a>
@@ -64,10 +70,16 @@
                                         </form>
                                     </li>
                                 </ul>
+                                <li>
+                                    <a href="{{ url('/home') }}">
+                                        <i class="material-icons">shopping_cart</i>
+                                    </a>
+                                </li>
                             </li>
+                           
                      @endguest
 
-                    <li>
+                    <!-- <li>
                         <a href="https://twitter.com/juandtorres0" target="_blank" class="btn btn-simple btn-white btn-just-icon">
                             <i class="fa fa-twitter"></i>
                         </a>
@@ -81,7 +93,7 @@
                         <a href="https://www.instagram.com/juandtorres0" target="_blank" class="btn btn-simple btn-white btn-just-icon">
                             <i class="fa fa-instagram"></i>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

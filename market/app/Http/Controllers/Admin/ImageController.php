@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Product;
@@ -12,7 +14,7 @@ class ImageController extends Controller
     public function index($id)
     {
     	$product = Product::find($id);
-    	$images = $product->images;
+    	$images = $product->images()->orderBy('featured', 'des')->get();
     	return view('admin.products.images.index')->with(compact('product', 'images'));
     }
     public function store(Request $request, $id)
@@ -21,7 +23,7 @@ class ImageController extends Controller
     	$file = $request->file('photo');
     	$path = public_path() . '/images/products';
     	$fileName = uniqid() . $file->getClientOriginalName();
-    	$moved ->move($path, $fileName);
+    	$moved = $file->move($path, $fileName);
     	
     	//crear registro en la base de datos
     	if($moved){
@@ -52,7 +54,19 @@ class ImageController extends Controller
         }
 
         return back();
-    }
+	}
+	public function select($id, $image)
+	{
+		ProductImage::where('product_id', $id)->update([
+			'featured' => false
+		]);
+
+		$productImage = ProductImage::find($image);
+		$productImage->featured = true;
+		$productImage->save();  
+	
+		return back();
+	}
 
 
 

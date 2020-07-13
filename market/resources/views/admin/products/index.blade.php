@@ -35,7 +35,7 @@
                             <td class="text-left">{{ $product->name }}</td>
                             <td class='col-md-4 text-left'>{{ $product->description }}</td>
                             <td class="text-left">{{ $product->category ? $product->category->name: 'General' }}</td>
-                            <td class="text-right">&euro;{{ $product->price }}</td>
+                            <td class="text-right">${{ $product->price }}</td>
                             <td class="td-actions text-right">
                                
                                 <form method="post" action="{{ url('/admin/products/'.$product->id) }}" >

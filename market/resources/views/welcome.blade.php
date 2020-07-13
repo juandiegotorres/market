@@ -1,16 +1,34 @@
 @extends('layouts.app')
 @section('title', 'Bienvenido a JT Store')
 @section('body-class', 'landing-page')
+@section('styles')
+    <style>
+        .team .row .col-md-4 {
+            margin-bottom: 5em;
+        }
+        .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+        flex-wrap: wrap;
+        }
+        .row > [class*='col-md-4'] {
+        display: flex;
+        flex-direction: column;
+        }
+    </style>
+@endsection
 @section('content')
-<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+<div class="header header-filter" style="background-image: url('https://www.digitalplatforms.co.za/wp-content/uploads/2015/11/Website-Design-Background.jpg');">
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <h1 class="title">Bienvenido a mi tienda</h1>
             <h4>Realiza tu pedido de forma online de la manera más fácil</h4>
             <br />
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
-                <i class="fa fa-play"></i> ¿Cómo funciona?
+            <a href="#productos" class="btn btn-danger btn-raised btn-lg">
+                Ver productos disponibles
             </a>
         </div>
     </div>
@@ -59,7 +77,7 @@
             </div>
         </div>
     </div>
-
+    <a name="productos">
     <div class="section text-center">
         <h2 class="title">Productos disponibles</h2>
 
@@ -68,24 +86,29 @@
                 @foreach ($products as $product)
                 <div class="col-md-4">
                     <div class="team-player">
-                        <img src="{{ $product->images()->first()->image }}" alt="Thumbnail Image" class="img-raised img-circle">
-                        <h4 class="title">{{ $product->name }}<br />
+                        <a href="{{ url('/products/'.$product->id) }}">
+                            <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-circle">
+                        </a>
+                        <h4 class="title">
+                            <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
+                        <br />
                             <small class="text-muted">{{ $product->category->name }}</small>
                         </h4>
                         <p class="description">{{ $product->description }}</p>
-                        <a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>
-                        <a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-instagram"></i></a>
-                        <a href="#pablo" class="btn btn-simple btn-just-icon btn-default"><i class="fa fa-facebook-square"></i></a>
+
                     </div>
                 </div>
                 @endforeach
             </div>
+            <div class="text-center">
+                {{ $products->links() }}
+            </div>
         </div>
-
     </div>
+    </a>
 
 
-    <div class="section landing-section">
+    <!-- <div class="section landing-section">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2 class="text-center title">Work with us</h2>
@@ -122,7 +145,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 </div>
 
 </div>
