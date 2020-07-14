@@ -39,10 +39,7 @@
                             <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
                                 <i class="material-icons">add_shopping_cart</i> Añadir al carrito
                             </button>
-                        </div>
-
-                        <!-- Modal Core -->
-                    
+                        </div>                  
 
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
@@ -68,7 +65,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End Profile Tabs -->
+
                            
                      @endguest
                
@@ -78,6 +75,8 @@
             </div>
         </div>
     </div>
+    
+    <!-- Modal Core -->
     <div class="modal fade" id="modalAddToCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -92,7 +91,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <div class="modal-body">
-                            <input type="number" name="quantity" value="1" class="form-control">
+                            <input type="number" name="quantity" value="1" class="form-control" min="1" pattern="^[0-9]+">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Cancelar</button>
@@ -102,7 +101,7 @@
                     </div>
                 </div>
     </div>
-
+ <!-- End Profile Tabs -->
 
 @include('includes.footer')
 

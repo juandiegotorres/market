@@ -23,9 +23,17 @@
                                     </a>
                                 </div> -->
                             </div>
-                            <p class="text-divider">Ingresa tus datos</p>
+                            <!-- <p class="text-divider">Ingresa tus datos</p> -->
                             <div class="content">
-
+                                @if ($errors->any())
+                                    <div class="alert alert-danger" role = "alert">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="material-icons">email</i>
@@ -66,7 +74,7 @@
             <div class="col-md-10">&nbsp;</div>
             <div class="col-md-10">&nbsp;</div>
             <div class="col-md-10">&nbsp;</div>
-            
+            <div class="col-md-10">&nbsp;</div>
         </div>
         
         @include('includes.footer')
