@@ -56,10 +56,13 @@
                              Forgot Your Password?
                             </a> -->
                         </form>
+                            
                     </div>
                 </div>
             </div>
-            <div class="col-md-10">&nbsp;</div>
+            <p style="color:white;" class="text-center">
+                ¿No tienes una cuenta? <a href="{{ route('register') }}"> Crear una</a>
+            </p>
             <div class="col-md-10">&nbsp;</div>
             <div class="col-md-10">&nbsp;</div>
             <div class="col-md-10">&nbsp;</div>

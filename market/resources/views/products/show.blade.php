@@ -2,7 +2,7 @@
 @section('title', 'JT Store | Dashboard')
 @section('body-class', 'profile-page')
 @section('content')
-    <div class="header header-filter" style="background-image: url('/img/examples/city.jpg');"></div>
+    <div class="header header-filter" style="background-image: url('/img/abstract.jpg');"></div>
 
     <div class="main main-raised">
         <div class="profile-content">
@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="profile">
                         <div class="avatar">
-                            <img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-circle img-responsive img-raised">
+                            <img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-rounded img-responsive img-raised">
                         </div>
                         <div class="name">
                             <h3 class="title">{{ $product->name }}</h3>
@@ -26,40 +26,52 @@
                 <div class="description text-center">
                     <p>{{ $product->long_description }}</p>
                 </div>
-                <div class="text-center">
-                    <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
-                        <i class="material-icons">add_shopping_cart</i> Añadir al carrito
-                    </button>
-                </div>
+                 @guest
+                            <div class="text-center">
+                                <a href="{{ route('login') }}">
+                                    <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
+                                        <i class="material-icons">add_shopping_cart</i> Añadir al carrito
+                                    </button>
+                                </a>
+                            </div>
+                        @else
+                        <div class="text-center">
+                            <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
+                                <i class="material-icons">add_shopping_cart</i> Añadir al carrito
+                            </button>
+                        </div>
 
-                <!-- Modal Core -->
-               
+                        <!-- Modal Core -->
+                    
 
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <div class="profile-tabs">
-                            <div class="nav-align-center">
-                               
-                                <div class="tab-content gallery">
-                                    <div class="tab-pane active" id="studio">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                @foreach ($imagesLeft as $image)
-                                                <img src="{{ $image->url }}" class="img-rounded" />
-                                                @endforeach
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="profile-tabs">
+                                    <div class="nav-align-center">
+                                    
+                                        <div class="tab-content gallery">
+                                            <div class="tab-pane active" id="studio">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        @foreach ($imagesLeft as $image)
+                                                        <img src="{{ $image->url }}" class="img-rounded" />
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        @foreach ($imagesRight as $image)
+                                                        <img src="{{ $image->url }}" class="img-rounded" />                                   
+                                                        @endforeach
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                @foreach ($imagesRight as $image)
-                                                <img src="{{ $image->url }}" class="img-rounded" />                                   
-                                                @endforeach
-                                            </div>
+
                                         </div>
                                     </div>
-
                                 </div>
-                            </div>
-                        </div>
-                        <!-- End Profile Tabs -->
+                                <!-- End Profile Tabs -->
+                           
+                     @endguest
+               
                     </div>
                 </div>
 

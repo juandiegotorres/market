@@ -37,7 +37,7 @@
 
 <div class="main main-raised">
 <div class="container">
-    <div class="section text-center section-landing">
+    <!-- <div class="section text-center section-landing">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2 class="title">Let's talk product</h2>
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <a name="productos">
     <div class="section text-center">
         <h2 class="title">Productos disponibles</h2>
@@ -84,10 +84,10 @@
         <div class="team">
             <div class="row">
                 @foreach ($products as $product)
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="team-player">
                         <a href="{{ url('/products/'.$product->id) }}">
-                            <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-circle">
+                            <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-rounded">
                         </a>
                         <h4 class="title">
                             <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>

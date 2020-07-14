@@ -3,29 +3,29 @@
     <nav class="pull-left">
         <ul>
             <li>
-                <a href="http://www.creative-tim.com">
-                    AAAA
+                <a rel="tooltip" title="Seguinos en Facebook" data-placement="top" href="https://www.facebook.com/" target="_blank" class="btn btn-black btn-simple btn-just-icon">
+                    <i class="fa fa-facebook-square"></i>
                 </a>
             </li>
             <li>
-                <a href="http://presentation.creative-tim.com">
-                   EEEE
+                <a rel="tooltip" title="Seguinos en Twitter" data-placement="top" href="https://www.twitter.com/" target="_blank" class="btn btn-black btn-simple btn-just-icon">
+                    <i class="fa fa-twitter-square"></i>
                 </a>
             </li>
             <li>
-                <a href="http://blog.creative-tim.com">
-                   Blog
+                <a rel="tooltip" title="Seguinos en Instagram" data-placement="top" href="https://www.instagram.com/" target="_blank" class="btn btn-black btn-simple btn-just-icon">
+                    <i class="fa fa-instagram"></i>
                 </a>
             </li>
             <li>
-                <a href="http://www.creative-tim.com/license">
-                    Licenses
+                <a href="">
+                   Contacto
                 </a>
             </li>
         </ul>
     </nav>
     <div class="copyright pull-right">
-        &copy; 2016, made with <i class="fa fa-heart heart"></i> by Creative Tim
+       &copy; Juan Diego Torres
     </div>
 </div>
 

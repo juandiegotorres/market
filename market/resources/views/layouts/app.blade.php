@@ -72,7 +72,7 @@
                                 </ul>
                                 <li>
                                     <a href="{{ url('/home') }}">
-                                        <i class="material-icons">shopping_cart</i>
+                                        <i class="material-icons">shopping_cart</i> Carrito
                                     </a>
                                 </li>
                             </li>
