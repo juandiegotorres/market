@@ -7,7 +7,6 @@ Route::get('/', 'TestController@bienvenida');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/products/{id}', 'ProductController@show');
 
 Route::post('/cart', 'CartDetailController@store');

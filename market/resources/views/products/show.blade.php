@@ -40,8 +40,9 @@
                                 <i class="material-icons">add_shopping_cart</i> Añadir al carrito
                             </button>
                         </div>                  
+                 @endguest
 
-                        <div class="row">
+                 <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="profile-tabs">
                                     <div class="nav-align-center">
@@ -65,10 +66,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-                           
-                     @endguest
-               
+              
                     </div>
                 </div>
 
