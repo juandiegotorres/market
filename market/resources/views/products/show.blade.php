@@ -70,7 +70,7 @@
                     <i class="material-icons">add_shopping_cart</i> Añadir al carrito
                 </button>
                 <a href="{{ url('/products') }}">
-                    <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
+                    <button class="btn btn-primary btn-round" data-toggle="modal">
                         <i class="material-icons">keyboard_backspace</i> Volver
                     </button>
                 </a>
