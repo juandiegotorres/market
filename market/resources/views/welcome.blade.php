@@ -1,155 +1,85 @@
 @extends('layouts.app')
 @section('title', 'Bienvenido a JT Store')
 @section('body-class', 'landing-page')
+@include('includes.style')
 @section('styles')
-    <style>
-        .team .row .col-md-4 {
-            margin-bottom: 5em;
-        }
-        .row {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display:         flex;
-        flex-wrap: wrap;
-        }
-        .row > [class*='col-md-4'] {
-        display: flex;
-        flex-direction: column;
-        }
-    </style>
+<style>
+    .header {
+        margin-bottom: -150px;
+    }
+
+    .btn {
+        background-color: #601863;
+    }
+
+    .btn-danger {
+        background-color: #601863;
+    }
+</style>
 @endsection
 @section('content')
-<div class="header header-filter" style="background-image: url('https://www.digitalplatforms.co.za/wp-content/uploads/2015/11/Website-Design-Background.jpg');">
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h1 class="title">Bienvenido a mi tienda</h1>
-            <h4>Realiza tu pedido de forma online de la manera más fácil</h4>
-            <br />
-            <a href="#productos" class="btn btn-danger btn-raised btn-lg">
-                Ver productos disponibles
-            </a>
+
+    
+
+<div class="header header-filter" style="background-image: url('/img/descarga3.jpg');">
+    <div class="container">
+        <div class="ok">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="title">Bienvenido a JT Store</h1>
+                    <h4>El mejor hardware al mejor precio</h4>
+                    <br />
+                    <a href="{{ url('/products') }}" class="btn btn-danger  btn-raised btn-lg">
+                        Ver productos disponibles
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-</div>
-
-<div class="main main-raised">
-<div class="container">
-    <!-- <div class="section text-center section-landing">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2 class="title">Let's talk product</h2>
-                <h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.</h5>
-            </div>
-        </div>
-
-        <div class="features">
+<div class="body">
+    <div class="main main-raised">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="info">
-                        <div class="icon icon-primary">
-                            <i class="material-icons">chat</i>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="/img/promo3.jpg" style="width:100%;">
                         </div>
-                        <h4 class="info-title">First Feature</h4>
-                        <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="info">
-                        <div class="icon icon-success">
-                            <i class="material-icons">verified_user</i>
+
+                        <div class="item">
+                            <img src="/img/promo2.png" style="width:100%;">
                         </div>
-                        <h4 class="info-title">Second Feature</h4>
-                        <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="info">
-                        <div class="icon icon-danger">
-                            <i class="material-icons">fingerprint</i>
+
+                        <div class="item">
+                            <img src="/img/promo1.png" style="width:100%;">
                         </div>
-                        <h4 class="info-title">Third Feature</h4>
-                        <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
                     </div>
+
                 </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
-    </div> -->
-    <a name="productos">
-    <div class="section text-center">
-        <h2 class="title">Productos disponibles</h2>
 
-        <div class="team">
-            <div class="row">
-                @foreach ($products as $product)
-                <div class="col-md-3">
-                    <div class="team-player">
-                        <a href="{{ url('/products/'.$product->id) }}">
-                            <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-rounded">
-                        </a>
-                        <h4 class="title">
-                            <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
-                        <br />
-                            <small class="text-muted">{{ $product->category->name }}</small>
-                        </h4>
-                        <p class="description">{{ $product->description }}</p>
-
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            <div class="text-center">
-                {{ $products->links() }}
-            </div>
-        </div>
     </div>
-    </a>
-
-
-    <!-- <div class="section landing-section">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2 class="text-center title">Work with us</h2>
-                <h4 class="text-center description">Divide details about your product or agency work into parts. Write a few lines about each one and contact us about any further collaboration. We will responde get back to you in a couple of hours.</h4>
-                <form class="contact-form">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Your Name</label>
-                                <input type="email" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Your Email</label>
-                                <input type="email" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group label-floating">
-                        <label class="control-label">Your Messge</label>
-                        <textarea class="form-control" rows="4"></textarea>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 col-md-offset-4 text-center">
-                            <button class="btn btn-primary btn-raised">
-                                Send Message
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-    </div> -->
 </div>
-
-</div>
-
 @include('includes.footer')
 
 @endsection

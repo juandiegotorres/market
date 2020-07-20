@@ -9,6 +9,23 @@ class Product extends Model
 {
 	use SoftDeletes;
 
+	public static $messages = [
+		'name.required' => 'El campo nombre no puede estar vacio.', 
+		'name.min' => 'El nombre del producto debe tener mínimo 3 caracteres.',
+		'description.required' => 'El campo descripción no puede estar vacio.',
+		'description.max' => 'El campo descripción solo admite 200 caracteres.',
+		'price.required' => 'El campo precio no puede estar vacio.',
+		'price.numeric' => 'Ingrese un precio válido.',
+		'price.min' => 'No se admiten valores negativos.'
+	];
+
+	public static $rules = [
+		'name' => 'required|min:3',
+		'description' => 'required|max:200',
+		'price' => 'required|numeric|min:0', 
+
+	];
+	
 	// $product->category
 	public function category()
 	{
@@ -34,5 +51,13 @@ class Product extends Model
 		//devolver imagen por defecto
 		return '/images/products/default.png';
 	}
+
+	public function getCategoryNameAttribute()
+	{
+		if ($this->category)
+			return $this->category->name;
+		
+		return 'General';
 	
+	}
 }

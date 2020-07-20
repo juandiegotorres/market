@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
 class AdminMiddleware
 {
     /**
@@ -15,9 +14,9 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect()->intended('/');
-        }
+        // if (Auth::guard($guard)->check()) {
+        //     return redirect()->intended('/');
+        // }
 
         // if (!auth()->user()){
         //     return redirect()->back();

@@ -5,45 +5,32 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 class ProductController extends Controller
 {
 	public function index()
 	{
-		$products = Product::paginate(10);
+		$products = Product::orderBy('name')->paginate(10);
 		return view('admin.products.index')->with(compact('products'));
 	}
 
 	public function create()
 	{
-		return view('admin.products.create');
+		$categories = Category::orderBy('name')->get();
+		return view('admin.products.create')->with(compact('categories'));//inyectar sobre la vista 
 	}
 
 	public function store(Request $request)
 	{
 		//validacion
-		$messages = [
-			'name.required' => 'El campo nombre no puede estar vacio.', 
-			'name.min' => 'El nombre del producto debe tener mínimo 3 caracteres.',
-			'description.required' => 'El campo descripción no puede estar vacio.',
-			'description.max' => 'El campo descripción solo admite 200 caracteres.',
-			'price.required' => 'El campo precio no puede estar vacio.',
-			'price.numeric' => 'Ingrese un precio válido.',
-			'price.min' => 'No se admiten valores negativos.'
-		];
-
-		$rules = [
-			'name' => 'required|min:3',
-			'description' => 'required|max:200',
-			'price' => 'required|numeric|min:0', 
-
-		];
-		$this->validate($request, $rules, $messages);
+		$this->validate($request, Product::$rules, Product::$messages);
 
 		//registrado del producto
 		$product = new Product();
 		$product->name = $request->input('name');
 		$product->description = $request->input('description');
 		$product->price = $request->input('price');
+		$product->category_id = $request->category_id;
 		$product->long_description = $request->input('long_description');
 		$product->save(); //INSERT
 
@@ -52,29 +39,14 @@ class ProductController extends Controller
 
 	public function edit($id)
 	{
+		$categories = Category::orderBy('name')->get();
 		$product = Product::find($id);
-		return view('admin.products.edit')->with(compact('product'));
+		return view('admin.products.edit')->with(compact('product', 'categories'));
 	}
 
 	public function update(Request $request, $id)
 	{
-		$messages = [
-			'name.required' => 'El campo nombre no puede estar vacio.', 
-			'name.min' => 'El nombre del producto debe tener mínimo 3 caracteres.',
-			'description.required' => 'El campo descripción no puede estar vacio.',
-			'description.max' => 'El campo descripción solo admite 200 caracteres.',
-			'price.required' => 'El campo precio no puede estar vacio.',
-			'price.numeric' => 'Ingrese un precio válido.',
-			'price.min' => 'No se admiten valores negativos.'
-		];
-
-		$rules = [
-			'name' => 'required|min:3',
-			'description' => 'required|max:200',
-			'price' => 'required|numeric|min:0', 
-
-		];
-		$this->validate($request, $rules, $messages);
+		$this->validate($request, Product::$rules, Product::$messages);
 
 		
 		$product = Product::find($id);
@@ -82,6 +54,7 @@ class ProductController extends Controller
 		$product->description = $request->input('description');
 		$product->price = $request->input('price');
 		$product->long_description = $request->input('long_description');
+		$product->category_id = $request->category_id;
 		$product->save(); //UPDATE
 
 		return redirect('admin/products');

@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('body-class', 'signup-page')
+@section('styles')
+    <style>
+        .ok {
+            margin-bottom: 1em;
+        }
+    </style>
+@endsection
 @section('content')
 <div class="header header-filter" style="background-image: url('{{ asset ('img/abstract1.jpg') }}'); background-size: cover; background-position: top center;">
         <div class="container">
@@ -69,9 +76,9 @@
                              <!-- <a class="btn btn-link" href="{{ route('password.request') }}">
                              Forgot Your Password?
                             </a> -->
-                            <div class="col-md-4">
-                            </div>
+                            
                         </form>
+                        <div class="ok"></div>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,14 @@
 @extends('layouts.app')
 @section('body-class', 'signup-page')
+@section('styles')
+    <style>
+        .ok {
+            margin-bottom: 7em;
+        }
+    </style>
+@endsection
 @section('content')
-<div class="header header-filter" style="background-image: url('{{ asset ('img/abstract1.jpg') }}'); background-size: cover; background-position: top center;">
+<div class="header header-filter" style="background-image: url('img/abstract1.jpg'); background-size: cover; background-position: top center;">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
@@ -68,13 +75,9 @@
                     </div>
                 </div>
             </div>
-            <p style="color:white;" class="text-center">
+            <p style="color:white;" class="ok text-center">
                 ¿No tienes una cuenta? <a href="{{ route('register') }}"> Crear una</a>
             </p>
-            <div class="col-md-10">&nbsp;</div>
-            <div class="col-md-10">&nbsp;</div>
-            <div class="col-md-10">&nbsp;</div>
-            <div class="col-md-10">&nbsp;</div>
         </div>
         
         @include('includes.footer')

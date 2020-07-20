@@ -1,3 +1,13 @@
+
+<style>
+    .footer {
+        background: #121212;
+    }
+    .copyright {
+        color: #FFFFFF;
+    }
+</style>
+
 <footer class="footer">
 <div class="container">
     <nav class="pull-left">
@@ -18,7 +28,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a class="copyright" href="">
                    Contacto
                 </a>
             </li>
