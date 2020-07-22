@@ -15,6 +15,7 @@
 
     .team .row .col-md-3 {
         margin-bottom: 5em;
+
     }
 
     .row {
@@ -64,6 +65,10 @@
         text-align: left;
     }
 
+    h4.M {
+        margin-top: -20px;
+        font-weight: bold;
+    }
     .tt-suggestion.tt-cursor,
     .tt-suggestion:hover {
         color: #fff;
@@ -125,8 +130,10 @@
                                         <h4 class="title">
                                             <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
                                             <br />
-                                            <small class="text-muted">{{ $product->category->name }}</small>
+                                            <small class="text-muted">{{ $product->category->name }}</small></br>
+                                            
                                         </h4>
+                                        <h4 class="M">$ {{ $product->price }}</h4>
                                         <p class="description">{{ $product->description }}</p>
 
                                     </div>

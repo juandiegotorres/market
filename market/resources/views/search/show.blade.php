@@ -10,6 +10,11 @@
         padding-bottom: 50px;
     }
 
+    h4.M {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
     .team .row .col-md-3 {
         margin-bottom: 5em;
     }
@@ -65,22 +70,22 @@
                 <div class="team text-center">
                     <div class="row">
                         @if(count($categories) >= 1)
-                            @foreach ($categories as $product)
-                            <div class="col-md-3">
-                                <div class="team-player">
-                                    <a href="{{ url('/products/'.$product->id) }}">
-                                        <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-rounded">
-                                    </a>
-                                    <h4 class="title">
-                                        <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
-                                        <br />
-                                        <small class="text-muted">{{ $product->category->name }}</small>
-                                    </h4>
-                                    <p class="description">{{ $product->description }}</p>
+                        @foreach ($categories as $product)
+                        <div class="col-md-3">
+                            <div class="team-player">
+                                <a href="{{ url('/products/'.$product->id) }}">
+                                    <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-rounded">
+                                </a>
+                                <h4 class="title">
+                                    <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
+                                    <br />
+                                    <small class="text-muted">{{ $product->category->name }}</small>
+                                </h4>
+                                <p class="description">{{ $product->description }}</p>
 
-                                </div>
                             </div>
-                            @endforeach
+                        </div>
+                        @endforeach
                         @else
                         @if(count($products) >= 1)
                         @foreach ($products as $product)
@@ -94,6 +99,7 @@
                                     <br />
                                     <small class="text-muted">{{ $product->category->name }}</small>
                                 </h4>
+                                <h4 class="M">$ {{ $product->price }}</h4>
                                 <p class="description">{{ $product->description }}</p>
 
                             </div>
