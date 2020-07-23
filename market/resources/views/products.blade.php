@@ -8,6 +8,10 @@
         margin-bottom: -630px;
     }
 
+    .team .team-player img {
+        max-width: 230px;
+    }
+
     h2.title {
         margin-top: -14px;
         margin-bottom: 10px;
@@ -25,9 +29,15 @@
         display: flex;
         flex-wrap: wrap;
     }
+
+    .description {
+        margin-top: -20px;
+    }
+
     .main {
         background: #EAEAEA;
     }
+
     .row>[class*='col-md-4'] {
         display: flex;
         flex-direction: column;
@@ -69,6 +79,7 @@
         margin-top: -20px;
         font-weight: bold;
     }
+
     .tt-suggestion.tt-cursor,
     .tt-suggestion:hover {
         color: #fff;
@@ -78,7 +89,6 @@
     .tt-suggestion p {
         margin: 0;
     }
-
 </style>
 @endsection
 @section('content')
@@ -130,11 +140,9 @@
                                         <h4 class="title">
                                             <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
                                             <br />
-                                            <small class="text-muted">{{ $product->category->name }}</small></br>
-                                            
                                         </h4>
                                         <h4 class="M">$ {{ $product->price }}</h4>
-                                        <p class="description">{{ $product->description }}</p>
+
 
                                     </div>
                                 </div>

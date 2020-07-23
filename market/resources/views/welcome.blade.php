@@ -4,6 +4,13 @@
 @include('includes.style')
 @section('styles')
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@700&display=swap');
+
+    .title {
+        font-family: 'Hind Guntur', sans-serif;
+        font-size: 70px;
+    }
+
     .header {
         margin-bottom: -150px;
     }
@@ -19,15 +26,15 @@
 @endsection
 @section('content')
 
-    
+
 
 <div class="header header-filter" style="background-image: url('/img/descarga3.jpg');">
     <div class="container">
         <div class="ok">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <h1 class="title">Bienvenido a JT Store</h1>
-                    <h4>El mejor hardware al mejor precio</h4>
+                    <h5>El mejor hardware al mejor precio</h5>
                     <br />
                     <a href="{{ url('/products') }}" class="btn btn-danger  btn-raised btn-lg">
                         Ver productos disponibles
