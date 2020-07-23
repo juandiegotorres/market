@@ -3,14 +3,16 @@
 @section('styles')
 <style>
     .ok {
-        margin-bottom: 7em;
+        margin-bottom: 4em;
     }
 
     .footer {
         background: transparent;
     }
-    .signup-page .footer .copyright, .signup-page .footer a {
-    color: #FFFFFF;
+
+    .signup-page .footer .copyright,
+    .signup-page .footer a {
+        color: #FFFFFF;
     }
 </style>
 @endsection
@@ -25,19 +27,7 @@
 
                         <div class="header header-primary text-center">
                             <h4>Iniciar Sesión</h4>
-                            <!--    <div class="social-line">
-                                    <a href="#pablo" class="btn btn-simple btn-just-icon">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </a>
-                                    <a href="#pablo" class="btn btn-simple btn-just-icon">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                    <a href="#pablo" class="btn btn-simple btn-just-icon">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </div> -->
                         </div>
-                        <!-- <p class="text-divider">Ingresa tus datos</p> -->
                         <div class="content">
                             @if ($errors->any())
                             <div class="alert alert-danger" role="alert">
@@ -62,7 +52,6 @@
                                 <input id="password" type="password" placeholder="Contraseña..." class="form-control" name="password" required>
                             </div>
 
-                            <!--  If you want to add a checkbox to this form, uncomment this code -->
 
                             <div class="checkbox">
                                 <label>
@@ -70,13 +59,16 @@
                                     Recordar sesión
 
                             </div>
+
                         </div>
-                        <div class="footer text-center">
+                        <div class="text-center">
                             <button type="submit" class="btn btn-simple btn-primary btn-lg">Ingresar</a>
                         </div>
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                             Forgot Your Password?
-                        </a>
+                        <div class="text-center">
+                            <a href="{{ route('password.request') }}">
+                                <button type="submit" class="btn btn-simple btn-primary btn-sm">Olvidé mi contraseña</a>
+                            </a>
+                        </div>
                     </form>
 
                 </div>

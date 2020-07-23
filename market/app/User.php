@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Notifications\MyResetPassword;
 use App\Cart;
 use App\CartDetail;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -29,7 +30,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function carts() 
+    public function carts()
     {
         return $this->hasMany(Cart::class);
     }
@@ -48,5 +49,9 @@ class User extends Authenticatable
         $cart->save();
 
         return $cart;
+    }
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new MyResetPassword($token));
     }
 }

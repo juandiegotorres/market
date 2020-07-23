@@ -1,7 +1,13 @@
 @extends('layouts.app')
 @section('body-class', 'signup-page')
+@section('styles')
+<style>
+    .image{
+    background-image: url('/img/abstract.jpg');
+}
+</style>
 @section('content')
-<div class="header header-filter" style="background-image: url('img/abstract1.jpg'); background-size: cover; background-position: top center;">
+<div class="header header-filter image">
 
 <div class="container">
     <div class="row">
@@ -34,7 +40,7 @@
                                 <i class="material-icons">email</i>
                             </span>
                             <input id="email" type="email" class="form-control" placeholder="Correo electrónico" name="email" value="{{ $email or old('email') }}" required autofocus>
-               
+
                         </div>
 
 
@@ -44,7 +50,7 @@
                                 <i class="material-icons">lock_outline</i>
                             </span>
                             <input id="password" type="password" class="form-control" name="password" class="form-control" placeholder="Contraseña..." required>
-                
+
                         </div>
                         <div class="input-group">
 
@@ -58,7 +64,7 @@
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">
-                            Resetear contraseña
+                            Restablecer contraseña
                         </button>
                     </div>
                 </form>
@@ -66,7 +72,6 @@
             </div>
         </div>
     </div>
-    </div>
 </div>
-
+</div>
 @endsection

@@ -1,8 +1,13 @@
 @extends('layouts.app')
 @section('body-class', 'signup-page')
-
+@section('styles')
+<style>
+    .image{
+    background-image: url('/img/abstract.jpg');
+}
+</style>
 @section('content')
-<div class="header header-filter" style="background-image: url('img/abstract1.jpg'); background-size: cover; background-position: top center;">
+<div class="header header-filter image">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-4">
