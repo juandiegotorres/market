@@ -115,7 +115,7 @@
                         <div class="col-md-3">
                             <div class="team-player">
                                 <a href="{{ url('/categories/'.$category->id) }}">
-                                    <img src="{{ $category->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-rounded">
+                                    <img src="{{ $category->featured_image_url }}" alt="Thumbnail Image" class="img-rounded">
                                 </a>
                                 <h4 class="title">
                                     <a href="{{ url('/categories/'.$category->id) }}">{{ $category->name }}</a>

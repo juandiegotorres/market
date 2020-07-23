@@ -81,7 +81,7 @@
             <div class="text-center">
                 <form method="post" action="{{ url('/order') }}">
                     {{ csrf_field() }}
-                    <button class="btn btn-primary btn-round">
+                    <button class="btn btn-primary ">
                         <i class="material-icons">done</i> Realizar pedido
                     </button>
                 </form>

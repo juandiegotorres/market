@@ -33,10 +33,10 @@
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="col-md-2 text-right">Nombre</th>
-                        <th class="col-md-5 text-center">Descripción</th>
-                        <th class="text-center">Categoría</th>
-                        <th class="text-right">Precio</th>
+                        <th class="col-md-2 text-left">Nombre</th>
+                        <th class="col-md-5 text-left">Descripción</th>
+                        <th class="text-left">Categoría</th>
+                        <th class="text-left">Precio</th>
                         <th class="text-right">Opciones</th>
                     </tr>
                 </thead>

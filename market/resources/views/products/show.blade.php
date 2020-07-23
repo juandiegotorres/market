@@ -27,6 +27,7 @@
 </style>
 @endsection
 @section('content')
+
 <div class="header header-filter" style="background-image: url('/img/abstract.jpg');"></div>
 
 <div class="main main-raised">
@@ -54,7 +55,7 @@
 
             <div class="text-center">
                 @if(auth()->check())
-                <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddToCart">
                     <i class="material-icons">add_shopping_cart</i> Añadir al carrito
                 </button>
                 @else
@@ -63,7 +64,7 @@
                 </a>
                 @endif
                 <a href="{{ url('/products') }}">
-                    <button class="btn btn-primary btn-round">
+                    <button class="btn btn-primary">
                         <i class="material-icons">keyboard_backspace</i> Volver
                     </button>
                 </a>
@@ -87,6 +88,12 @@
                                             <img src="{{ $image->url }}" class="img-rounded" />
                                             @endforeach
                                         </div>
+                                        <script>
+                                            $('.test-popup-link').magnificPopup({
+                                                type: 'image'
+                                                // other options
+                                            });
+                                        </script>
                                     </div>
                                 </div>
 

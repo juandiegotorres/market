@@ -1,6 +1,15 @@
 @extends('layouts.app')
 @section('title', 'Listado de categorías')
 @section('body-class', 'product-page')
+@section('styles')
+<style>
+    .team {
+        margin-top: 17px;
+        margin-bottom: 20px;
+    }
+
+</style>
+@endsection
 @section('content')
 <div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
 </div>
@@ -16,7 +25,7 @@
             <div class="row">
                 
                 <!-- <a href="{{ url('/admin/categories/create') }}" class="btn btn-primary btn-round">Nueva categoría</a> -->
-               
+                <a href="{{ url('/admin/categories/create') }}" class="btn btn-primary">Nueva categoría</a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -58,7 +67,7 @@
                 {{ $categories->links() }}
                
             </div>
-            <a href="{{ url('/admin/categories/create') }}" class="btn btn-primary">Nueva categoría</a>
+           
         </div>
 
     </div>
