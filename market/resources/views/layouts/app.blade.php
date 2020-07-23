@@ -22,6 +22,7 @@
     <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/material-kit.css') }}" rel="stylesheet" />
 
+
     @yield('styles')
 
 
@@ -125,4 +126,5 @@
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 <script src="{{ asset('js/material-kit.js')}}" type="text/javascript"></script>
 @yield('scripts')
+
 </html>

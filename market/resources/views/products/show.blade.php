@@ -51,31 +51,24 @@
             <div class="description text-center">
                 <p>{{ $product->long_description }}</p>
             </div>
-            @guest
+
             <div class="text-center">
-                <a href="{{ route('login') }}">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddToCart">
-                        <i class="material-icons">add_shopping_cart</i> Añadir al carrito
-                    </button>
-                </a>
-                <a href="{{ url('/products') }}">
-                    <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
-                        <i class="material-icons">keyboard_backspace</i> Volver
-                    </button>
-                </a>
-            </div>
-            @else
-            <div class="text-center">
+                @if(auth()->check())
                 <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
                     <i class="material-icons">add_shopping_cart</i> Añadir al carrito
                 </button>
+                @else
+                <a href="{{ url('/login?redirect_to='.url()->current()) }}" class="btn btn-primary btn-round">
+                    <i class="material-icons">add_shopping_cart</i> Añadir al carrito
+                </a>
+                @endif
                 <a href="{{ url('/products') }}">
                     <button class="btn btn-primary btn-round">
                         <i class="material-icons">keyboard_backspace</i> Volver
                     </button>
                 </a>
             </div>
-            @endguest
+
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="profile-tabs">

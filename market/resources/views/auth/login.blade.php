@@ -74,9 +74,9 @@
                         <div class="footer text-center">
                             <button type="submit" class="btn btn-simple btn-primary btn-lg">Ingresar</a>
                         </div>
-                        <!-- <a class="btn btn-link" href="{{ route('password.request') }}">
+                        <a class="btn btn-link" href="{{ route('password.request') }}">
                              Forgot Your Password?
-                            </a> -->
+                        </a>
                     </form>
 
                 </div>

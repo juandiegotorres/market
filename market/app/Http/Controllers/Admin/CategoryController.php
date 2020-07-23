@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category;
+use File;
+
 class CategoryController extends Controller
 {
-    public function index()
+	public function index()
 	{
 		$categories = Category::orderBy('name')->paginate(10);
 		return view('admin.categories.index')->with(compact('categories'));
@@ -21,9 +23,21 @@ class CategoryController extends Controller
 	public function store(Request $request)
 	{
 		//validacion
-        $this->validate($request, Category::$rules, Category::$messages);
-		//registrado del producto
-        Category::create($request->all());//asignacion masiva
+		$this->validate($request, Category::$rules, Category::$messages);
+		//registrado de la categoria
+		$category = Category::create($request->only('name', 'description'));
+
+		if ($request->hasFile('image')) {
+			$file = $request->file('image');
+			$path = public_path() . '/images/categories';
+			$fileName = uniqid() . '-' . $file->getClientOriginalName();
+			$moved = $file->move($path, $fileName);
+
+			if ($moved) {
+				$category->image = $fileName;
+				$category->save(); //INSERT    		
+			}
+		}
 
 		return redirect('admin/categories');
 	}
@@ -35,23 +49,37 @@ class CategoryController extends Controller
 
 	public function update(Request $request, Category $category)
 	{
-
+		//actualizar categoria
 		$this->validate($request, Category::$rules, Category::$messages);
 
+		$category->update($request->only('name', 'description'));
 		
-        
-        $category->update($request->all());
+		if ($request->hasFile('image')) {
+			
+			$file = $request->file('image');
+			$path = public_path() . '/images/categories';
+			$fileName = uniqid() . '-' . $file->getClientOriginalName();
+			$moved = $file->move($path, $fileName);
+
+			
+			if ($moved) {
+				$previousPath = $path. '/' . $category->image;
+				$category->image = $fileName;
+				$saved = $category->save(); //UPDATE    	
+				
+				if($saved)
+					File::delete($previousPath);	
+			}
+		}
 
 		return redirect('admin/categories');
 	}
 
 	public function destroy(Category $category)
 	{
-	 
-	    $category->delete(); // DELETE
-	 
-	    return back();
+
+		$category->delete(); // DELETE
+
+		return back();
 	}
-
-
 }

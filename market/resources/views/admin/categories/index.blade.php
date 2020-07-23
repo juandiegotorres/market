@@ -20,9 +20,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-center">#</th>
-                            <th class="col-md-2 text-right">Nombre</th>
-                            <th class="col-md-5 text-center">Descripción</th>
+                            <th class="text-left">#</th>
+                            <th class="col-md-3 text-left">Nombre</th>
+                            <th class="col-md-4 text-left">Descripción</th>
+                            <th class="text-left">Imágen</th>
                             <th class="text-right">Opciones</th>
                         </tr>
                     </thead>
@@ -32,8 +33,8 @@
                             <td class="text-left">{{ ($key+1) }}</td>
                             <td class="text-left">{{ $category->name }}</td>
                             <td class='col-md-4 text-left'>{{ $category->description }}</td>
-                            <td class="td-actions text-right">
-                               
+                            <td><img src="{{ $category->featured_image_url }}" height="50" width="50"></td>
+                            <td class="td-actions text-right"> 
                                 <form method="post" action="{{ url('/admin/categories/'.$category->id) }}" >
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}

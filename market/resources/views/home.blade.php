@@ -75,8 +75,9 @@
                     @endforeach
                 </tbody>
             </table>
-
+            
             @if(isset($detail))
+            <h4 class="text-right"><strong>Total: ${{ auth()->user()->cart->total }}</strong></h4>
             <div class="text-center">
                 <form method="post" action="{{ url('/order') }}">
                     {{ csrf_field() }}

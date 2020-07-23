@@ -36,6 +36,6 @@ class Category extends Model
         if ($firstProduct)
             return $firstProduct->featured_image_url;
 
-        return '/images/default.gif';
+        return '/images/default.png';
     }
 }

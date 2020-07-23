@@ -4,7 +4,13 @@ Route::get('/', 'WelcomeController@welcome');
 Route::get('/products', 'WelcomeController@show');
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
+
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'); 
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'); 
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm'); 
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::get('/search', 'SearchController@show');
@@ -18,6 +24,8 @@ Route::get('/categories/{category}', 'CategoryController@show');
 Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');
 Route::post('/order', 'CartController@update');
+
+
 
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
@@ -43,3 +51,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
