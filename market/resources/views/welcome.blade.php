@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 @section('title', 'Bienvenido a JT Store')
 @section('body-class', 'landing-page')
@@ -72,27 +71,38 @@
     <div class="main main-raised">
         <div class="container-fluid">
             <div class="row">
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
-        
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="10">
+
                     <ol class="carousel-indicators">
                         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
                     </ol>
 
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="/img/promo3.jpg" style="width:100%;">
+                            <img src="/img/promo1.png" style="width:100%;">
+                        </div>
+                        <div class="item">
+                            <img src="/img/promo5.jpeg" style="width:100%;">
                         </div>
                         <div class="item">
                             <img src="/img/promo2.png" style="width:100%;">
                         </div>
                         <div class="item">
-                            <img src="/img/promo1.png" style="width:100%;">
+                            <img src="/img/promo4.jpg" style="width:100%;">
                         </div>
+                        <div class="item">
+                            <img src="/img/promo3.jpg" style="width:100%;">
+                        </div>
+
+
+
                     </div>
 
-                
+
                     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">
                             <</span> <span class="sr-only">Anterior
