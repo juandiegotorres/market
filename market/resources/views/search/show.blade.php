@@ -79,9 +79,9 @@
                                 <h4 class="title">
                                     <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
                                     <br />
-                                    <small class="text-muted">{{ $product->category->name }}</small>
                                 </h4>
-                                <p class="description">{{ $product->description }}</p>
+                                <h4 class="M">$ {{ $product->price }}</h4>
+
 
                             </div>
                         </div>
@@ -97,10 +97,9 @@
                                 <h4 class="title">
                                     <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
                                     <br />
-                                    <small class="text-muted">{{ $product->category->name }}</small>
                                 </h4>
                                 <h4 class="M">$ {{ $product->price }}</h4>
-                                <p class="description">{{ $product->description }}</p>
+
 
                             </div>
                         </div>

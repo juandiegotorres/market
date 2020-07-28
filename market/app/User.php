@@ -50,6 +50,14 @@ class User extends Authenticatable
 
         return $cart;
     }
+    public function getCartPendingAttribute()
+    {
+        $cartPending = $this->carts()->where('status', 'Pending')->first();
+        if ($cartPending)
+            return $cartPending;
+
+        // else
+    }
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new MyResetPassword($token));

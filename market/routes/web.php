@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'WelcomeController@welcome');
+Route::get('/test', 'WelcomeController@welcomeTest');
 Route::get('/products', 'WelcomeController@show');
 
 

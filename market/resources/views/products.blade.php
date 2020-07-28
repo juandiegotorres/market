@@ -17,6 +17,11 @@
         margin-bottom: 10px;
     }
 
+    h4.title {
+        margin-top: -14px;
+        margin-bottom: 40px;
+    }
+
     .team .row .col-md-3 {
         margin-bottom: 5em;
 
@@ -76,7 +81,11 @@
     }
 
     h4.M {
-        margin-top: -20px;
+        border: 1px solid rgba(76, 155, 243, 0.125);
+        text-align: center;
+        position: absolute;
+        bottom: -35px;
+        width: 90%;
         font-weight: bold;
     }
 
@@ -92,6 +101,7 @@
 </style>
 @endsection
 @section('content')
+
 <div class="header header-filter" style="background-image: url('/img/abstract.jpg');">
 
 </div>

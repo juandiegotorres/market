@@ -28,6 +28,8 @@
 @endsection
 @section('content')
 
+
+
 <div class="header header-filter" style="background-image: url('/img/abstract.jpg');"></div>
 
 <div class="main main-raised">
@@ -59,7 +61,7 @@
                     <i class="material-icons">add_shopping_cart</i> Añadir al carrito
                 </button>
                 @else
-                <a href="{{ url('/login?redirect_to='.url()->current()) }}" class="btn btn-primary btn-round">
+                <a href="{{ url('/login?redirect_to='.url()->current()) }}" class="btn btn-primary">
                     <i class="material-icons">add_shopping_cart</i> Añadir al carrito
                 </a>
                 @endif
@@ -79,21 +81,15 @@
                                 <div class="tab-pane active" id="studio">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            @foreach ($imagesLeft as $image)
-                                            <img src="{{ $image->url }}" class="img-rounded" />
+                                            @foreach ($imagesLeft as $image)                                           
+                                             <img src="{{ $image->url }}" class="img-rounded" />
                                             @endforeach
                                         </div>
                                         <div class="col-md-6">
-                                            @foreach ($imagesRight as $image)
+                                            @foreach ($imagesRight as $image)                                        
                                             <img src="{{ $image->url }}" class="img-rounded" />
                                             @endforeach
                                         </div>
-                                        <script>
-                                            $('.test-popup-link').magnificPopup({
-                                                type: 'image'
-                                                // other options
-                                            });
-                                        </script>
                                     </div>
                                 </div>
 
@@ -134,7 +130,5 @@
     </div>
 </div>
 <!-- End Profile Tabs -->
-
 @include('includes.footer')
-
 @endsection

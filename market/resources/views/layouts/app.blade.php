@@ -22,7 +22,7 @@
     <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/material-kit.css') }}" rel="stylesheet" />
 
-
+    
     @yield('styles')
 
 
@@ -39,7 +39,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/products">JT Store</a>
+                <a class="navbar-brand" href="/">JT Store</a>
+                <a class="navbar-brand">||</a>
+                <a class="navbar-brand" href="/products">Productos</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navigation-example">
@@ -111,6 +113,11 @@
 
 
 </body>
+<!-- Carousel files -->
+
+
+
+
 <!--   Core JS Files   -->
 <script src="{{ asset('js/jquery.min.js')}}" type="text/javascript"></script>
 

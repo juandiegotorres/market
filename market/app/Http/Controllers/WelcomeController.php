@@ -13,6 +13,7 @@ class WelcomeController extends Controller
     {
     	return view('welcome');
     }
+    
     public function show()
     {
         $products = Product::paginate(12);
