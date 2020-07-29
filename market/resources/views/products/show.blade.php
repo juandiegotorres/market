@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="profile">
                     <div class="avatar">
-                        <img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-rounded img-responsive">
+                        <img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-rounded img-responsive img-raised">
                     </div>
                     <div class="name">
                         <h3 class="title">{{ $product->name }}</h3>
