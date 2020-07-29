@@ -24,6 +24,10 @@
     .team .team-player .title {
         margin-bottom: 0.5em;
     }
+    .profile-page .profile img {
+        
+        background-color: #FFFFFF;
+    }
 </style>
 @endsection
 @section('content')
@@ -38,7 +42,7 @@
             <div class="row">
                 <div class="profile">
                     <div class="avatar">
-                        <img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-rounded img-responsive img-raised">
+                        <img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-rounded img-responsive">
                     </div>
                     <div class="name">
                         <h3 class="title">{{ $product->name }}</h3>
