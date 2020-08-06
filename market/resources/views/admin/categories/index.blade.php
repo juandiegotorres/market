@@ -47,13 +47,13 @@
                                 <form method="post" action="{{ url('/admin/categories/'.$category->id) }}" >
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <a href="{{ url('/categories/'.$category->id) }}" target="_blank" rel="tooltip" title="Ver" class="btn btn-info btn-simple btn-xs">
+                                    <a href="{{ url('/categories/'.$category->id) }}" target="_blank" class="btn btn-info btn-simple btn-xs">
                                     <i class="fa fa-info"></i>
                                 </a>
-                                     <a href="{{ url('/admin/categories/'.$category->id.'/edit') }}" rel="tooltip" title="Editar" class="btn btn-success btn-simple btn-xs">
+                                     <a href="{{ url('/admin/categories/'.$category->id.'/edit') }}" class="btn btn-success btn-simple btn-xs">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                     <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger btn-simple btn-xs">
+                                     <button type="submit"  class="btn btn-danger btn-simple btn-xs">
                                          <i class="fa fa-times"></i>
                                      </button>
                                 </form>

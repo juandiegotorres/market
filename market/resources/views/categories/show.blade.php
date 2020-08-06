@@ -3,101 +3,141 @@
 @section('title', 'JT Store | Categorías')
 
 @section('body-class', 'profile-page')
-@include('includes.style')
+    @include('includes.style')
 @section('styles')
-<style>
-    .team {
-        padding-bottom: 50px;
-    }
+    <style>
+        h4.M {
+            margin-top: 10px;
+            font-weight: bold;
+        }
 
-    .team .row .col-md-3 {
-        margin-bottom: 5em;
-    }
+        .team .team-player img {
+            max-width: 230px;
+            max-height: 200px;
+        }
 
-    .team .row {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        flex-wrap: wrap;
-    }
+        h4.M {
+            border: 1px solid rgba(76, 155, 243, 0.125);
+            text-align: center;
+            position: absolute;
+            bottom: -35px;
+            width: 90%;
+            font-weight: bold;
+        }
 
-    .team .row>[class*='col-'] {
-        display: flex;
-        flex-direction: column;
-    }
+        .team {
+            padding-bottom: 50px;
+        }
 
-    .no-margin {
-        margin: 0;
-    }
+        .team .row .col-md-3 {
+            margin-bottom: 5em;
+        }
 
-    .team .team-player .title {
-        margin-bottom: 0.5em;
-    }
+        .team .row {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    .profile-page .profile img {
-        
-        background-color: #FFFFFF;
-    }
-</style>
+        .team .row>[class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .no-margin {
+            margin: 0;
+        }
+
+        .team .team-player .title {
+            margin-bottom: 0.5em;
+        }
+
+        .profile-page .profile img {
+
+            background-color: #FFFFFF;
+        }
+
+    </style>
 @endsection
 
 @section('content')
-<div class="header header-filter" style="background-image: url('/img/abstract.jpg');"></div>
+    <div class="header header-filter" style="background-image: url('/img/abstract.jpg');"></div>
 
-<div class="main main-raised">
-    <div class="profile-content">
-        <div class="container">
-            <div class="row">
-                <div class="profile">
-                    <div class="avatar">
-                        <img src="{{ $category->featured_image_url }}" alt="Imagen representativa de la categoría {{ $category->name }}" class="img-rounded img-responsive">
-                    </div>
-
-                    <div class="name">
-                        <h3 class="title">{{ $category->name }}</h3>
-                    </div>
-
-
-                    @if (session('notification'))
-                    <div class="alert alert-success">
-                        {{ session('notification') }}
-                    </div>
-                    @endif
-                </div>
-            </div>
-            <div class="description text-center">
-                <p>{{ $category->description }}</p>
-            </div>
-
-            <div class="team text-center">
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
                 <div class="row">
-                    @foreach ($products as $product)
-                    <div class="col-md-3">
-                        <div class="team-player">
-                            <a href="{{ url('/products/'.$product->id) }}">
-                                <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-rounded">
-                            </a>
-                            <h4 class="title">
-                                <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
-                                <br />
-                                <small class="text-muted">{{ $product->category->name }}</small>
-                            </h4>
-                            <p class="description">{{ $product->description }}</p>
-
+                    <div class="profile">
+                        <div class="avatar">
+                            <img src="{{ $category->featured_image_url }}"
+                                alt="Imagen representativa de la categoría {{ $category->name }}"
+                                class="img-rounded img-responsive">
                         </div>
-                    </div>
-                    @endforeach
-                </div>
-                <div class="text-center">
-                    {{ $products->links() }}
-                </div>
-            </div>
 
+                        <div class="name">
+                            <h3 class="title">{{ $category->name }}</h3>
+                        </div>
+
+
+                        @if (session('notification'))
+                            <div class="alert alert-success">
+                                {{ session('notification') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="description text-center">
+                    <p>{{ $category->description }}</p>
+                </div>
+
+                <div class="team text-center">
+                    <div class="row">
+                        @foreach ($products as $product)
+                            <div class="col-md-3">
+                                <div class="team-player">
+                                    <a href="{{ url('/products/' . $product->id) }}">
+                                        <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image"
+                                            class="img-raised img-rounded">
+                                    </a>
+                                    <h4 class="title">
+                                        <a href="{{ url('/products/' . $product->id) }}">{{ $product->name }}</a>
+                                        <br />
+                                    </h4>
+                                    <h4 class="M">$ {{ $product->price }}</h4>
+
+
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- @foreach ($products as $product)
+                            <div class="col-md-3">
+                                <div class="team-player">
+                                    <a href="{{ url('/products/' . $product->id) }}">
+                                        <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image"
+                                            class="img-raised img-rounded">
+                                    </a>
+                                    <h4 class="title">
+                                        <a href="{{ url('/products/' . $product->id) }}">{{ $product->name }}</a>
+                                        <br />
+                                        <small class="text-muted">{{ $product->category->name }}</small>
+                                    </h4>
+                                    <p class="description">{{ $product->description }}</p>
+
+                                </div>
+                            </div>
+                        @endforeach --}}
+                    </div>
+                    <div class="text-center">
+                        {{ $products->links() }}
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
 
 
-@include('includes.footer')
+    @include('includes.footer')
 @endsection

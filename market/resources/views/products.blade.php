@@ -10,6 +10,7 @@
 
     .team .team-player img {
         max-width: 230px;
+        max-height: 230px;
     }
 
     h2.title {
@@ -173,7 +174,7 @@
 
     @endsection
     @section('scripts')
-    <script src="{{ asset('/js/typeahead.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('/js/typeahead.bundle.min.js') }}"></script>
     <script>
         $(function() {
             // 
@@ -193,5 +194,5 @@
                 source: products
             });
         });
-    </script>
+    </script> --}}
     @endsection
