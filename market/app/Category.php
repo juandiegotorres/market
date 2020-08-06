@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-
+    use SoftDeletes;
+    
 	public static $messages = [
         'name.required' => 'El campo nombre no puede estar vacio.', 
         'name.min' => 'El nombre de la categoría debe tener mínimo 3 caracteres.',

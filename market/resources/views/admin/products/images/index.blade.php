@@ -15,12 +15,12 @@
 @endsection
 @section('content')
 <link href="{{ asset('/css/input-file.css') }}" rel="stylesheet" />
-<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+<div class="header header-filter" style="background-image: url('/img/abstract.jpg');">
 </div>
 
 <div class="main main-raised">
     <div class="container">
-
+        
         <div class="text-center h">
             <h2 class="title">Imagenes del producto "{{ $product->name }}"</h2>
         </div>
@@ -38,12 +38,19 @@
                 </div>
                 <div class="col-sm-4 e">
                     <div class="form-group label-floating">
+
                         <button type="submit" class="btn btn-primary btn-sm">Subir nueva imágen</button>
+
                         <a href="{{ url('/admin/products') }}" class="btn btn-default btn-sm">Volver</a>
                     </div>
                 </div>
             </div>
         </form>
+        @if (session('notification'))
+        <div class="alert alert-warning">
+            {{ session('notification') }}
+        </div>
+        @endif
         <div class=" section text-center">
             <div class="row">
 

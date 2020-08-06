@@ -98,8 +98,6 @@
                             <img src="/img/promo3.jpg" style="width:100%;">
                         </div>
 
-
-
                     </div>
 
 

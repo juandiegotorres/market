@@ -32,7 +32,11 @@
                 </ul>
             </div>
             @endif
-
+            @if (session('notification'))
+            <div class="alert alert-warning">
+                {{ session('notification') }}
+            </div>
+            @endif
             <form method="post" action="{{ url('/admin/categories/'.$category->id.'/edit') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
